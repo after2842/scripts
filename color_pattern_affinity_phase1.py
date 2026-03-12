@@ -526,7 +526,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Phase 1 color-pattern affinity pipeline via local vLLM")
     parser.add_argument("--db-url", default=os.getenv("SUPABASE_DB_URL"))
     parser.add_argument("--base-url", default=os.getenv("OPENAI_BASE_URL", "http://127.0.0.1:8000/v1"))
-    parser.add_argument("--api-key", default=os.getenv("OPENAI_API_KEY", "localtest"))
+    parser.add_argument("--api-key", default=os.getenv("OPENAI_API_KEY", "testlocal"))
     parser.add_argument("--model", default=os.getenv("MODEL_NAME", "Qwen/Qwen2.5-VL-7B-Instruct"))
 
     parser.add_argument("--work-dir", default="./color_pattern_affinity_phase1_work")
