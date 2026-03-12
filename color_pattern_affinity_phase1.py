@@ -109,13 +109,13 @@ Rules:
 - Use animal_print for leopard, zebra, snake, cow, tiger, or similar animal-derived patterns.
 - Do NOT output explanations.
 - Return JSON only in this exact shape:
-  {
+  {{
     "affinities": [
-      {"label": "<allowed_label>", "confidence": <float 0.0-1.0>},
-      {"label": "<allowed_label>", "confidence": <float 0.0-1.0>},
-      {"label": "<allowed_label>", "confidence": <float 0.0-1.0>}
+      {{"label": "<allowed_label>", "confidence": <float 0.0-1.0>}},
+      {{"label": "<allowed_label>", "confidence": <float 0.0-1.0>}},
+      {{"label": "<allowed_label>", "confidence": <float 0.0-1.0>}}
     ]
-  }
+  }}
 
 Product title:
 {title}
@@ -424,7 +424,7 @@ def classify_one(
                 timeout=request_timeout,
                 messages=[
                     {"role": "system", "content": SYSTEM_PROMPT},
-                    {
+                    {{
                         "role": "user",
                         "content": [
                             {"type": "text", "text": USER_PROMPT_TEMPLATE.format(title=title)},
@@ -452,7 +452,7 @@ def classify_one(
                 "title": title,
                 "image_url": image_url,
                 "affinities": [
-                    {
+                    {{
                         "label": item.label.value,
                         "confidence": float(item.confidence),
                     }
@@ -625,7 +625,7 @@ def main() -> None:
 
                         append_jsonl(
                             results_jsonl,
-                            {
+                            {{
                                 "time": utc_now_iso(),
                                 "source_run_id": source_run_id,
                                 "product_id": result["product_id"],
@@ -665,7 +665,7 @@ def main() -> None:
                         )
                         append_jsonl(
                             errors_jsonl,
-                            {
+                            {{
                                 "time": utc_now_iso(),
                                 "source_run_id": source_run_id,
                                 "product_id": result["product_id"],
