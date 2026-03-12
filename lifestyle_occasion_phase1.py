@@ -223,7 +223,7 @@ def load_state(work_dir: Path) -> dict:
 
 def save_state(work_dir: Path, state: dict) -> None:
     ensure_dir(work_dir)
-    (work_dir / "state.json").write_text(json.dumps(state, indent=2), encoding="utf-8"))
+    (work_dir / "state.json").write_text(json.dumps(state, indent=2), encoding="utf-8")
 
 
 def is_valid_http_url(url: str) -> tuple[bool, str]:
